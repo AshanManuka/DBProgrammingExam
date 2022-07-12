@@ -3,9 +3,13 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 
-public class StudentFormController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class StudentFormController implements Initializable {
     public AnchorPane context;
     public JFXTextField studentId;
     public JFXTextField studentName;
@@ -20,6 +24,7 @@ public class StudentFormController {
     public JFXButton searchBtn;
 
     public void addBtn(ActionEvent actionEvent) {
+
     }
 
     public void updateBtn(ActionEvent actionEvent) {
@@ -29,5 +34,10 @@ public class StudentFormController {
     }
 
     public void searchBtn(ActionEvent actionEvent) {
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }
