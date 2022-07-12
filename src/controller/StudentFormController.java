@@ -4,10 +4,13 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import model.Student;
+import util.crudUtil;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class StudentFormController implements Initializable {
@@ -34,6 +37,14 @@ public class StudentFormController implements Initializable {
 
         Student student = new Student(id,name,mail,contact,address,nic);
 
+        try{
+            if(crudUtil.execute("INSERT INTO student VALUES (?,?,?,?,?,?)",student.getStudentId(),student.getStudentName(),student.getStudentEmail(),student.getStudentContact(),student.getStudentAddress(),student.getStudentNic())){
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved Student!..").show();
+            }
+        }catch(ClassNotFoundException | SQLException e){
+            e.printStackTrace();
+            new Alert(Alert.AlertType.WARNING, "Something went Wrong!..").show();
+        }
 
     }
 
