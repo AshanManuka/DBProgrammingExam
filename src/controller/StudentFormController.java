@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
+import model.Student;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,6 +25,15 @@ public class StudentFormController implements Initializable {
     public JFXButton searchBtn;
 
     public void addBtn(ActionEvent actionEvent) {
+        String id = studentId.getText();
+        String name = studentName.getText();
+        String mail = studentMail.getText();
+        String contact = studentContact.getText();
+        String address = studentAddress.getText();
+        String nic = studentNIC.getText();
+
+        Student student = new Student(id,name,mail,contact,address,nic);
+
 
     }
 
