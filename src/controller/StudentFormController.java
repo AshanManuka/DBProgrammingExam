@@ -70,6 +70,18 @@ public class StudentFormController implements Initializable {
     }
 
     public void deleteBtn(ActionEvent actionEvent) {
+        String Id = studentId.getText();
+
+        try{
+            if (crudUtil.execute("DELETE FROM student WHERE studentId=? ",Id)){
+                new Alert(Alert.AlertType.CONFIRMATION, "Deleted Student!..").show();
+            }else{
+                new Alert(Alert.AlertType.WARNING, "Something went Wrong!..").show();
+            }
+        }catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+
     }
 
     public void searchBtn(ActionEvent actionEvent) {
